@@ -103,7 +103,7 @@
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Email</label>
                     <div class="col-sm-9">
-                      <input name ="Email" type="email" class="form-control" required="">
+                      <input name ="email" type="email" class="form-control" required="">
                       <div class="invalid-feedback">
                         Entrez votre Email ! 
                       </div>
@@ -157,11 +157,11 @@
 
      
 
-                        <div class="card-footer text-right">
+                      <div class="card-footer text-right">
 
-<button class="btn btn-primary" _msttexthash="98280" _msthash="189"  id="toastr-2" type="submit">Envoyer</button>
+                      <button class="btn btn-primary" _msttexthash="98280" _msthash="189"  value="save" id="toastr-2" type="submit">Envoyer</button>
 
-</div>
+                      </div>
                   
            
                   

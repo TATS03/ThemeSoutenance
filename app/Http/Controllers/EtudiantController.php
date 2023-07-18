@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Etudiant;
+use App\Models\User; 
+use Hash;
 
 class EtudiantController extends Controller
 {
@@ -14,6 +16,8 @@ class EtudiantController extends Controller
      */
     public function index()
     {
+        $etudiants = Etudiant::all();
+        return view('pages.listeETD',compact("etudiants"));
         //
     }
 
@@ -33,45 +37,43 @@ class EtudiantController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request  $request)
     {
-        // dd($request);
-        $etudiant = new Etudiant;
+
+        //   dd($request);
+       
+        $user = new User();
+
+        $user -> nom = $request->nom;
+        $user -> email = $request-> email;
+        $user -> password =  Hash::make( $request->password ) ;
+        $user -> perso = 'Etudiant';
+        
+
+        $user -> save();
+
+
+          //dd($request);
+
+        $etudiant = new Etudiant();
 
         $etudiant -> matricule = $request->matricule;
         $etudiant -> nom =  $request->nom;
-        $etudiant -> email =  $request->Email;
+        $etudiant -> email =  $request->email;
         $etudiant -> password =  Hash::make( $request->password ) ;
         $etudiant -> filiere =  $request->filiere;
         $etudiant -> niveau =  $request->niveau;
 
+        $etudiant->user_id = $user->id;
+
         $etudiant -> save();
 
-        return to_route('listeETD');
+        // $user->Etudiant()->save($etudiant);
 
-        // $etudiants = Etudiant::all();
 
-        // return view("listeETD",compact('etudiants'));
-
-       $verif =  $request ->validate([
-            'matricule' =>' required |max: 7',
-           ' nom'=>' required |max: 30',
-           ' email' =>' required |email ',
-           ' password '=>' required |password |max: 8 ',
-            'filiere' =>' required |max: 30 ',
-           ' niveau '=>' required |max: 30 ',
-
-        ]);
-        if($verif){
-
-            echo 'verification effectuer';
-
-        }else{
-
-            return redirect()->back();
-        }
-
+        return to_route('requete');
     }
+
 
     /**
      * Display the specified resource.

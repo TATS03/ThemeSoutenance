@@ -54,60 +54,59 @@
       
                 <div class="card card-primary">
               
-                <!-- <form  action ="{{url('liste_etd.store')}}" method="POST" class="needs-validation was-validated" novalidate=""> -->
+              
                 <form  action ="{{route('listeETD')}}" method="POST" class="needs-validation was-validated" novalidate="">
                        @csrf
                     <div class="card-header">
                       <h4>Login</h4>
                     </div>
-                    <div class="card-body">
+                    
+                      <div class="card-body">
                       <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Your Matricule</label>
+                        <label class="col-sm-3 col-form-label"> Email</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" required="">
+                          <input type="text" class="form-control"  name="email" required autofocus >
                           <div class="invalid-feedback">
-                            What's your Matricule?
+                            What's your email?
                           </div>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Email</label>
-                        <div class="col-sm-9">
-                          <input type="email" class="form-control" required="">
-                          <div class="invalid-feedback">
-                            Oh no! Email is invalid.
-                          </div>
+                              
                         </div>
                       </div>
                       
                       <div class="form-group row">
                       <label for="password" class="col-sm-3 col-form-label">Password</label>
                       <div class="col-sm-9">
-                      <input id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator" name="password"  required="">
+                      <input id="password" type="password" class="form-control"  name="password" required autofocus>
                       <div class="invalid-feedback">
-                            Oh no! Password is invalid.
+                             Password is invalid ! 
                           </div>
+                         
                     </div>
                       
                     
-                    <!-- <div class="card-footer text-right">
-                      <button class="btn btn-primary">Submit</button>
-                    </div> -->
-
                     <div class="card-footer text-right">
-                    <a href= "{{route('requete')}}" class="btn btn-primary">Submit</a>
-                    </div>
-
-
-                
+                      <button class="btn btn-primary">Submit</button>
+                    </div>        
                   </form>
-
-                  
+             
                 </div>
               </div>
+              
+             
+               
+              
+              <!-- pour le register des prof -->
               <div class="mb-4 text-muted text-center">
-                Already Registered? <a href="{{route('sign')}}" >Register</a>
+                <h4>Register Professeur</h4>
+                Already Registered? <a href="{{route('signprof')}}" >Register</a>
               </div>
+              
+               <!-- pour le rgister des etudiant -->
+               <div class="mb-4 text-muted text-center">
+                 <h4>Register Etudiant</h4>
+                 Already Registered? <a href="{{route('sign')}}" >Register</a>
+                 </div>
+              
             </div>
           </div>
         </section>

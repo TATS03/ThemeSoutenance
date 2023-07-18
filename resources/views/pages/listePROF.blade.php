@@ -1,7 +1,5 @@
 
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,28 +10,31 @@
   <link rel="stylesheet" href="{{asset('assets/css/app.min.css')}}">
   <link rel="stylesheet" href="{{asset('assets/bundles/owlcarousel2/dist/assets/owl.carousel.min.css')}}">
   <link rel="stylesheet" href="{{asset('assets/bundles/owlcarousel2/dist/assets/owl.theme.default.min.css')}}">
-  <link rel="stylesheet" href="assets/bundles/izitoast/css/iziToast.min.css">
-  <link rel="stylesheet" href="assets/bundles/jqvmap/dist/jqvmap.min.css">
-  <link rel="stylesheet" href="assets/bundles/flag-icon-css/css/flag-icon.min.css">
-  
+  <link rel="stylesheet" href="{{asset('assets/bundles/izitoast/css/iziToast.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/bundles/jqvmap/dist/jqvmap.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/bundles/flag-icon-css/css/flag-icon.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/bundles/summernote/summernote-bs4.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/bundles/bootstrap-social/bootstrap-social.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/bundles/prism/prism.css')}}">
   
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
   <link rel="stylesheet" href="{{asset('assets/css/components.css')}}">
   <!-- Custom style CSS -->
   <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
-  <link rel='shortcut icon' type='image/x-icon' href='{{asset('assets/img/favicon.ico')}}' /> 
-  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  <link rel='shortcut icon' type='image/x-icon' href="{{asset('assets/img/favicon.ico')}}"> 
+  <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/img/favicon.ico')}}">
 
   
-  <link rel="stylesheet" href="assets/css/app.min.css">
+  <link rel="stylesheet" href="{{asset('assets/css/app.min.css')}}">
   <!-- Template CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/components.css')}}">
   <!-- Custom style CSS -->
-  <link rel="stylesheet" href="assets/css/custom.css">
-  <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+  
+  <link rel='shortcut icon' type='image/x-icon' href="{{asset('assets/img/favicon.ico')}}" />
 </head>
+
 <body class="sidebar-gone light light-sidebar theme-white">
       
 

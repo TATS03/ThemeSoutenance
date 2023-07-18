@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('requetes', function (Blueprint $table) {
             $table->id();
-            
+
             // $table->bigInteger('id_etd')->unsigned()->index()->nullable();
             // $table->bigInteger('id_prof')->unsigned()->index()->nullable();
 
@@ -24,10 +24,12 @@ return new class extends Migration
             $table->string('filiere');
             $table->string('matiere');
             $table->string('object');
-            
-            // $table->foreign('id_etd')->references('id')->on('etudiants');
-            // $table->foreign('id_prof')->references('id')->on('professeurs');
-        
+            $table->string('file');
+            $table->integer('etat');
+            //Pour les requetes rediriger, l
+            //0 Pour les requetes non verifier
+            //1 Pour les requetes verifier et valider
+            //2 Pour les requetes verifier et regeter
             $table->timestamps();
         });
     }

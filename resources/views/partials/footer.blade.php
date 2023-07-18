@@ -88,11 +88,11 @@
       </div>
       <footer class="main-footer">
         <div class="footer-left">
-          <a href="templateshub.net" _msttexthash="206869" _msthash="174">Templateshub</a>
+          <a href= "{{route('new')}}" _msttexthash="206869" _msthash="174">Templateshub</a>
         </div>
         <div class="footer-right">
         </div>
-      </footer>
+      </footer>  
     </div>
   </div>
 
@@ -102,31 +102,38 @@
 
               
     <!-- General JS Scripts -->
-    <script src="assets/js/app.min.js"></script>
+    <script src="{{asset('assets/js/app.min.js')}}"></script>
       <!-- JS Libraies -->
-      <script src="assets/bundles/owlcarousel2/dist/owl.carousel.min.js"></script>
-      <script src="assets/bundles/izitoast/js/iziToast.min.js"></script>
-      <script src="assets/bundles/chartjs/chart.min.js"></script>
-      <script src="assets/bundles/jquery.sparkline.min.js"></script>
-      <script src="assets/bundles/apexcharts/apexcharts.min.js"></script>
-      <script src="assets/bundles/jqvmap/dist/jquery.vmap.min.js"></script>
-      <script src="assets/bundles/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-      <script src="assets/bundles/jqvmap/dist/maps/jquery.vmap.indonesia.js"></script>
-      <script src="assets/bundles/datatables/datatables.min.js"></script>
-      <script src="assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
-      <script src="assets/bundles/summernote/summernote-bs4.js"></script>
-      <script src="assets/bundles/owlcarousel2/dist/owl.carousel.min.js"></script>
+      <script src="{{asset('assets/bundles/owlcarousel2/dist/owl.carousel.min.js')}}"></script>
+      <script src="{{asset('assets/bundles/izitoast/js/iziToast.min.js')}}"></script>
+      <script src="{{asset('assets/bundles/chartjs/chart.min.js')}}"></script>
+      <script src="{{asset('assets/bundles/jquery.sparkline.min.js')}}"></script>
+      <script src="{{asset('assets/bundles/apexcharts/apexcharts.min.js')}}"></script>
+      <script src="{{asset('assets/bundles/jqvmap/dist/jquery.vmap.min.js')}}"></script>
+      <script src="{{asset('assets/bundles/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
+      <script src="{{asset('assets/bundles/jqvmap/dist/maps/jquery.vmap.indonesia.js')}}"></script>
+      <script src="{{asset('assets/bundles/datatables/datatables.min.js')}}"></script>
+      <script src="{{asset('assets/bundles/datatables/DataTables-1.10/js/dataTables.bootstrap4.min.js')}}"></script> 
+      <script src="{{asset('assets/bundles/summernote/summernote-bs4.js')}}"></script>
+      <script src="{{asset('assets/bundles/prism/prism.js')}}"></script>
+      <script src="{{asset('assets/bundles/owlcarousel2/dist/owl.carousel.min.js')}}"></script>
+      <script src="{{asset('assets/bundles/dropzonejs/min/dropzone.min.js')}}"></script>
       <!-- Page Specific JS File -->
-      <script src="assets/js/page/owl-carousel.js"></script>
-      <script src="assets/js/page/toastr.js"></script>
-      <script src="assets/js/page/widget-chart.js"></script>
-      <script src="assets/js/page/widget-data.js"></script>
+      <script src="{{asset('assets/js/page/owl-carousel.js')}}"></script>
+      <script src="{{asset('assets/js/page/toastr.js')}}"></script>
+      <script src="{{asset('assets/js/page/widget-chart.js')}}"></script>
+      <script src="{{asset('assets/js/page/widget-data.js')}}"></script>
       <div class="jqvmap-label" style="display: none;"></div>
-      <script src="assets/js/page/datatables.js"></script>
+      <script src="{{asset('assets/bundles/prism/prism.js')}}"></script>
+      <script src="{{asset('assets/js/page/datatables.js')}}"></script>
+      <script src="{{asset('assets/js/page/multiple-upload.js')}}"></script>
       <!-- Template JS File -->
       <script src="{{asset('assets/js/scripts.js')}}"></script>
+      
       <!-- Custom JS File -->
       <script src="{{asset('assets/js/custom.js')}}"></script>
-   
+     
+    
 
-      
+      <div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr" style="width: 8px; z-index: 892; cursor: default; position: fixed; top: 0px; left: -8px; height: 961px; touch-action: none; display: block; opacity: 0;"><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 6px; height: 563px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px; touch-action: none;"></div></div>
+      <div id="ascrail2000-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 8px; z-index: 892; top: 953px; left: -250px; position: fixed; cursor: default; display: none; width: 242px; opacity: 0;"><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 6px; width: 250px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px; left: 0px;"></div></div>

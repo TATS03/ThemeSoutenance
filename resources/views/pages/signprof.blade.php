@@ -139,14 +139,7 @@
             </div>
           </div>
           
-          <div class="col-12 col-sm-6 col-lg-3">
-                <div class="card">
-                  <div class="card-body text-center">
-                    <div class="mb-2">Success Message</div>
-                    <button class="btn btn-primary" id="toastr-2">Launch</button>
-                  </div>
-                </div>
-              </div>
+          
 </form>
                 
                      

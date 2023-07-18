@@ -2,37 +2,10 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Hamster</title>
-  <!-- General CSS Files --> 
-  <link rel="stylesheet" href="{{asset('assets/css/app.min.css')}}">
-  <link rel="stylesheet" href="assets/bundles/owlcarousel2/dist/assets/owl.carousel.min.css">
-  <link rel="stylesheet" href="assets/bundles/owlcarousel2/dist/assets/owl.theme.default.min.css">
-  <link rel="stylesheet" href="assets/bundles/izitoast/css/iziToast.min.css">
-  <link rel="stylesheet" href="assets/bundles/jqvmap/dist/jqvmap.min.css">
-  <link rel="stylesheet" href="assets/bundles/flag-icon-css/css/flag-icon.min.css">
-  <link rel="stylesheet" href="assets/bundles/summernote/summernote-bs4.css">
-  <link rel="stylesheet" href="assets/bundles/bootstrap-social/bootstrap-social.css">
-  
-  <!-- Template CSS -->
-  <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/css/components.css')}}">
-  <!-- Custom style CSS -->
-  <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
-  <link rel='shortcut icon' type='image/x-icon' href='{{asset('assets/img/favicon.ico')}}' /> 
-  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
-  
-  <link rel="stylesheet" href="assets/css/app.min.css">
-  <!-- Template CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/components.css">
-  <!-- Custom style CSS -->
-  <link rel="stylesheet" href="assets/css/custom.css">
-  <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
-</head>
+
+
+
 <body class="sidebar-gone light light-sidebar theme-white">
       
 
@@ -43,7 +16,7 @@
           <!-- <section class="section"> -->
       
               <div class="row  ">
-                  <div class="col-5 mx-auto" >
+                  <div class="col-5 mx-auto" > 
                   <div class="card">
                     <div class="card-header">
                       <h2>WELCOME</h2>
@@ -68,42 +41,22 @@
           <div class="section-body">
          
               <div class="col-12 col-sm-12 col-lg-9">
-                <div class="card author-box card-primary">
+               
 
-                  <div class="card-body">
-                    <div class="author-box-left">
-                      <img alt="image" src="assets/img/users/user-4.png" class="rounded-circle author-box-picture">
-                      <div class="clearfix"></div>
-                      <a href="{{route('loginprof')}}" class="btn btn-primary mt-3 follow" data-follow-action="alert('follow clicked');" data-unfollow-action="alert('unfollow clicked');">cliquez</a>
-                    </div>
-                    <div class="author-box-details">
-                      <div class="author-box-name">
-                        <a href="#">PROFESSEURS</a>
-                      </div>
-                      <div class="author-box-job"> Universiter de yaounde 1  </div>
-                      <div class="author-box-description">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                          consequat.</p>
-                      </div>
-                     
-                    </div>
-                  </div>
-                </div>
 
                 <div class="card author-box card-primary">
                   <div class="card-body">
                     <div class="author-box-left">
                       <img alt="image" src="assets/img/users/user-1.png" class="rounded-circle author-box-picture">
                       <div class="clearfix"></div>
-                      <a href="{{route('login')}}" class="btn btn-primary mt-3 follow" data-follow-action="alert('follow clicked');" data-unfollow-action="alert('unfollow clicked');">cliquez</a>
+                     
+                      <a href="{{route('login')}}" class="btn btn-primary mt-3 follow"  data-follow-action="alert('follow clicked');" data-unfollow-action="alert('unfollow clicked');">cliquez</a>
                     </div>
 
                     
                     <div class="author-box-details">
                       <div class="author-box-name">
-                        <a href="#">ETUDIANTS</a>
+                        <a href="#">Utilisateurs </a>
                       </div>
                       <div class="author-box-job"> Universiter de yaounde 1 </div>
                       <div class="author-box-description">
@@ -137,6 +90,10 @@
                     <a href="#" class="btn btn-primary">View All</a>
                   </div>
                 </div>
+
+
+
+
                 <div class="card-body">
                   <div class="row">
                     <div class="col-lg-9">
@@ -277,270 +234,59 @@
               <div class="card author-box card-primary">
         
                 <div class="card-body p-0">
-                  <div class="table-responsive">
-                    <table class="table table-striped">
-                      <tbody><tr>
-                        <th class="text-center">
-                          <div class="custom-checkbox custom-checkbox-table custom-control">
-                            <input type="checkbox" data-checkboxes="mygroup" data-checkbox-role="dad" class="custom-control-input" id="checkbox-all">
-                            <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
-                          </div>
-                        </th>
-                        <th>Task Name</th>
-                        <th>Members</th>
-                        <th>Task Status</th>
-                        <th>Assigh Date</th>
-                        <th>Due Date</th>
-                        <th>Priority</th>
-                        <th>Action</th>
-                      </tr>
-                      <tr>
-                        <td class="p-0 text-center">
-                          <div class="custom-checkbox custom-control">
-                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-1">
-                            <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
-                          </div>
-                        </td>
-                        <td>Create a mobile app</td>
-                        <td class="text-truncate">
-                          <ul class="list-unstyled order-list m-b-0 m-b-0">
-                            <li class="team-member team-member-sm"><img class="rounded-circle" src="assets/img/users/user-8.png" alt="user" data-toggle="tooltip" title="" data-original-title="Wildan Ahdian"></li>
-                            <li class="team-member team-member-sm"><img class="rounded-circle" src="assets/img/users/user-9.png" alt="user" data-toggle="tooltip" title="" data-original-title="John Deo"></li>
-                            <li class="team-member team-member-sm"><img class="rounded-circle" src="assets/img/users/user-10.png" alt="user" data-toggle="tooltip" title="" data-original-title="Sarah Smith"></li>
-                            <li class="avatar avatar-sm"><span class="badge badge-primary">+4</span></li>
-                          </ul>
-                        </td>
-                        <td class="align-middle">
-                          <div class="progress-text">50%</div>
-                          <div class="progress" data-height="6" style="height: 6px;">
-                            <div class="progress-bar bg-success" data-width="50%" style="width: 50%;"></div>
-                          </div>
-                        </td>
-                        <td>2018-01-20</td>
-                        <td>2019-05-28</td>
-                        <td>
-                          <div class="badge badge-success">Low</div>
-                        </td>
-                        <td><a href="#" class="btn btn-outline-primary">Detail</a></td>
-                      </tr>
-                      <tr>
-                        <td class="p-0 text-center">
-                          <div class="custom-checkbox custom-control">
-                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-2">
-                            <label for="checkbox-2" class="custom-control-label">&nbsp;</label>
-                          </div>
-                        </td>
-                        <td>Redesign homepage</td>
-                        <td class="text-truncate">
-                          <ul class="list-unstyled order-list m-b-0 m-b-0">
-                            <li class="team-member team-member-sm"><img class="rounded-circle" src="assets/img/users/user-1.png" alt="user" data-toggle="tooltip" title="" data-original-title="Wildan Ahdian"></li>
-                            <li class="team-member team-member-sm"><img class="rounded-circle" src="assets/img/users/user-2.png" alt="user" data-toggle="tooltip" title="" data-original-title="John Deo"></li>
-                            <li class="avatar avatar-sm"><span class="badge badge-primary">+2</span></li>
-                          </ul>
-                        </td>
-                        <td class="align-middle">
-                          <div class="progress-text">40%</div>
-                          <div class="progress" data-height="6" style="height: 6px;">
-                            <div class="progress-bar bg-danger" data-width="40%" style="width: 40%;"></div>
-                          </div>
-                        </td>
-                        <td>2017-07-14</td>
-                        <td>2018-07-21</td>
-                        <td>
-                          <div class="badge badge-danger">High</div>
-                        </td>
-                        <td><a href="#" class="btn btn-outline-primary">Detail</a></td>
-                      </tr>
-                      <tr>
-                        <td class="p-0 text-center">
-                          <div class="custom-checkbox custom-control">
-                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-3">
-                            <label for="checkbox-3" class="custom-control-label">&nbsp;</label>
-                          </div>
-                        </td>
-                        <td>Backup database</td>
-                        <td class="text-truncate">
-                          <ul class="list-unstyled order-list m-b-0 m-b-0">
-                            <li class="team-member team-member-sm"><img class="rounded-circle" src="assets/img/users/user-3.png" alt="user" data-toggle="tooltip" title="" data-original-title="Wildan Ahdian"></li>
-                            <li class="team-member team-member-sm"><img class="rounded-circle" src="assets/img/users/user-4.png" alt="user" data-toggle="tooltip" title="" data-original-title="John Deo"></li>
-                            <li class="team-member team-member-sm"><img class="rounded-circle" src="assets/img/users/user-5.png" alt="user" data-toggle="tooltip" title="" data-original-title="Sarah Smith"></li>
-                            <li class="avatar avatar-sm"><span class="badge badge-primary">+3</span></li>
-                          </ul>
-                        </td>
-                        <td class="align-middle">
-                          <div class="progress-text">55%</div>
-                          <div class="progress" data-height="6" style="height: 6px;">
-                            <div class="progress-bar bg-purple" data-width="55%" style="width: 55%;"></div>
-                          </div>
-                        </td>
-                        <td>2019-07-25</td>
-                        <td>2019-08-17</td>
-                        <td>
-                          <div class="badge badge-info">Average</div>
-                        </td>
-                        <td><a href="#" class="btn btn-outline-primary">Detail</a></td>
-                      </tr>
-                      <tr>
-                        <td class="p-0 text-center">
-                          <div class="custom-checkbox custom-control">
-                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-4">
-                            <label for="checkbox-4" class="custom-control-label">&nbsp;</label>
-                          </div>
-                        </td>
-                        <td>Android App</td>
-                        <td class="text-truncate">
-                          <ul class="list-unstyled order-list m-b-0 m-b-0">
-                            <li class="team-member team-member-sm"><img class="rounded-circle" src="assets/img/users/user-7.png" alt="user" data-toggle="tooltip" title="" data-original-title="John Deo"></li>
-                            <li class="team-member team-member-sm"><img class="rounded-circle" src="assets/img/users/user-8.png" alt="user" data-toggle="tooltip" title="" data-original-title="Sarah Smith"></li>
-                            <li class="avatar avatar-sm"><span class="badge badge-primary">+4</span></li>
-                          </ul>
-                        </td>
-                        <td class="align-middle">
-                          <div class="progress-text">70%</div>
-                          <div class="progress" data-height="6" style="height: 6px;">
-                            <div class="progress-bar" data-width="70%" style="width: 70%;"></div>
-                          </div>
-                        </td>
-                        <td>2018-04-15</td>
-                        <td>2019-07-19</td>
-                        <td>
-                          <div class="badge badge-success">Low</div>
-                        </td>
-                        <td><a href="#" class="btn btn-outline-primary">Detail</a></td>
-                      </tr>
-                      <tr>
-                        <td class="p-0 text-center">
-                          <div class="custom-checkbox custom-control">
-                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-5">
-                            <label for="checkbox-5" class="custom-control-label">&nbsp;</label>
-                          </div>
-                        </td>
-                        <td>Logo Design</td>
-                        <td class="text-truncate">
-                          <ul class="list-unstyled order-list m-b-0 m-b-0">
-                            <li class="team-member team-member-sm"><img class="rounded-circle" src="assets/img/users/user-9.png" alt="user" data-toggle="tooltip" title="" data-original-title="Wildan Ahdian"></li>
-                            <li class="team-member team-member-sm"><img class="rounded-circle" src="assets/img/users/user-10.png" alt="user" data-toggle="tooltip" title="" data-original-title="John Deo"></li>
-                            <li class="team-member team-member-sm"><img class="rounded-circle" src="assets/img/users/user-2.png" alt="user" data-toggle="tooltip" title="" data-original-title="Sarah Smith"></li>
-                            <li class="avatar avatar-sm"><span class="badge badge-primary">+2</span></li>
-                          </ul>
-                        </td>
-                        <td class="align-middle">
-                          <div class="progress-text">45%</div>
-                          <div class="progress" data-height="6" style="height: 6px;">
-                            <div class="progress-bar bg-cyan" data-width="45%" style="width: 45%;"></div>
-                          </div>
-                        </td>
-                        <td>2017-02-24</td>
-                        <td>2018-09-06</td>
-                        <td>
-                          <div class="badge badge-danger">High</div>
-                        </td>
-                        <td><a href="#" class="btn btn-outline-primary">Detail</a></td>
-                      </tr>
-                      <tr>
-                        <td class="p-0 text-center">
-                          <div class="custom-checkbox custom-control">
-                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-6">
-                            <label for="checkbox-6" class="custom-control-label">&nbsp;</label>
-                          </div>
-                        </td>
-                        <td>Ecommerce website</td>
-                        <td class="text-truncate">
-                          <ul class="list-unstyled order-list m-b-0 m-b-0">
-                            <li class="team-member team-member-sm"><img class="rounded-circle" src="assets/img/users/user-8.png" alt="user" data-toggle="tooltip" title="" data-original-title="Wildan Ahdian"></li>
-                            <li class="team-member team-member-sm"><img class="rounded-circle" src="assets/img/users/user-9.png" alt="user" data-toggle="tooltip" title="" data-original-title="John Deo"></li>
-                            <li class="team-member team-member-sm"><img class="rounded-circle" src="assets/img/users/user-10.png" alt="user" data-toggle="tooltip" title="" data-original-title="Sarah Smith"></li>
-                            <li class="avatar avatar-sm"><span class="badge badge-primary">+4</span></li>
-                          </ul>
-                        </td>
-                        <td class="align-middle">
-                          <div class="progress-text">30%</div>
-                          <div class="progress" data-height="6" style="height: 6px;">
-                            <div class="progress-bar bg-orange" data-width="30%" style="width: 30%;"></div>
-                          </div>
-                        </td>
-                        <td>2018-01-20</td>
-                        <td>2019-05-28</td>
-                        <td>
-                          <div class="badge badge-info">Average</div>
-                        </td>
-                        <td><a href="#" class="btn btn-outline-primary">Detail</a></td>
-                      </tr>
-                    </tbody></table>
-                  </div>
-                </div>
+                  <div class="table-responsive">                         
+                                 
+                                    <div class="card-header">
+                                      <h4>suggestions</h4>
+                                      <form class="card-header-form">
+                                        <input type="text" name="search" class="form-control" placeholder="Search">
+                                      </form>
+                                    </div>
+                                    <div class="card-body">
 
-              </div>
-            </div>
-          </div>
+                                   
+                                       <div class="support-ticket media pb-1 mb-3">
+                                        <img src="assets/img/users/user-1.png" class="user-img mr-2" alt="">
+                                        <div class="media-body ml-3">
 
+                                          <div class="badge badge-pill badge-success mb-1 float-right">admis</div>
+                                          <span class="font-weight-bold">#17G4567</span>
+                                         
+                                          <p class="my-1">requetes conforme et valide </p>
+                                          <small class="text-muted">push by <span class="font-weight-bold font-13"> Mr Aboubakar</span>
+                                            &nbsp;&nbsp; - 1 day ago</small>
+                                        </div>
+                                      </div>
 
+                                      <div class="support-ticket media pb-1 mb-3">
+                                        <img src="assets/img/users/user-1.png" class="user-img mr-2" alt="">
+                                        <div class="media-body ml-3">
 
+                                          <div class="badge badge-pill badge-danger mb-1 float-right">echec</div>
+                                          <span class="font-weight-bold">#17G4567</span>
+                                         
+                                          <p class="my-1">requetes  non conforme et invalide </p>
+                                          <small class="text-muted">push by <span class="font-weight-bold font-13"> Mr Aboubakar</span>
+                                            &nbsp;&nbsp; - 2 day ago</small>
+                                        </div>
+                                      </div>
 
-          <div class="row">
-            <div class="col-md-6 col-lg-12 col-xl-6">
-              <!-- Support tickets -->
-              <div class="card">
-                <div class="card-header">
-                  <h4>Support Ticket</h4>
-                  <form class="card-header-form">
-                    <input type="text" name="search" class="form-control" placeholder="Search">
-                  </form>
-                </div>
-                <div class="card-body">
-                  <div class="support-ticket media pb-1 mb-3">
-                    <img src="assets/img/users/user-1.png" class="user-img mr-2" alt="">
-                    <div class="media-body ml-3">
-                      <div class="badge badge-pill badge-success mb-1 float-right">Feature</div>
-                      <span class="font-weight-bold">#89754</span>
-                      <a href="javascript:void(0)">Please add advance table</a>
-                      <p class="my-1">Hi, can you please add new table for advan...</p>
-                      <small class="text-muted">Created by <span class="font-weight-bold font-13">John
-                          Deo</span>
-                        &nbsp;&nbsp; - 1 day ago</small>
-                    </div>
-                  </div>
-                  <div class="support-ticket media pb-1 mb-3">
-                    <img src="assets/img/users/user-2.png" class="user-img mr-2" alt="">
-                    <div class="media-body ml-3">
-                      <div class="badge badge-pill badge-warning mb-1 float-right">Bug</div>
-                      <span class="font-weight-bold">#57854</span>
-                      <a href="javascript:void(0)">Select item not working</a>
-                      <p class="my-1">please check select item in advance form not work...</p>
-                      <small class="text-muted">Created by <span class="font-weight-bold font-13">Sarah
-                          Smith</span>
-                        &nbsp;&nbsp; - 2 day ago</small>
-                    </div>
-                  </div>
-                  <div class="support-ticket media pb-1 mb-3">
-                    <img src="assets/img/users/user-3.png" class="user-img mr-2" alt="">
-                    <div class="media-body ml-3">
-                      <div class="badge badge-pill badge-primary mb-1 float-right">Query</div>
-                      <span class="font-weight-bold">#85784</span>
-                      <a href="javascript:void(0)">Are you provide template in Angular?</a>
-                      <p class="my-1">can you provide template in latest angular 8.</p>
-                      <small class="text-muted">Created by <span class="font-weight-bold font-13">Ashton Cox</span>
-                        &nbsp;&nbsp; -2 day ago</small>
-                    </div>
-                  </div>
-                  <div class="support-ticket media pb-1 mb-3">
-                    <img src="assets/img/users/user-6.png" class="user-img mr-2" alt="">
-                    <div class="media-body ml-3">
-                      <div class="badge badge-pill badge-info mb-1 float-right">Enhancement</div>
-                      <span class="font-weight-bold">#25874</span>
-                      <a href="javascript:void(0)">About template page load speed</a>
-                      <p class="my-1">Hi, John, can you work on increase page speed of template...</p>
-                      <small class="text-muted">Created by <span class="font-weight-bold font-13">Hasan
-                          Basri</span>
-                        &nbsp;&nbsp; -3 day ago</small>
-                    </div>
-                  </div>
-                </div>
-                <a href="javascript:void(0)" class="card-footer card-link text-center small ">View
-                  All</a>
-              </div>
-            </div>
-          </div>
+                                       <div class="support-ticket media pb-1 mb-3">
+                                        <img src="assets/img/users/user-1.png" class="user-img mr-2" alt="">
+                                        <div class="media-body ml-3">
+
+                                          <div class="badge badge-pill badge-warning mb-1 float-right">en cours</div>
+                                          <span class="font-weight-bold">#17G4567</span>
+                                         
+                                          <p class="my-1">en attente </p>
+                                          <small class="text-muted">push by <span class="font-weight-bold font-13"> Mr Aboubakar</span>
+                                            &nbsp;&nbsp; - 1 day ago</small>
+                                        </div>
+                                      </div>
+
+                                    </div>
+                                    
+                                  
 
                           
         </section>

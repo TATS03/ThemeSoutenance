@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Professeur;
 use Illuminate\Http\Request;
+use App\Models\Professeur;
+use App\Models\User; 
+use Hash;
 
 class professeurController extends Controller
 {
@@ -14,6 +16,9 @@ class professeurController extends Controller
      */
     public function index()
     {
+        
+        $professeurs = Professeur::all();
+        return view('pages.listePROF',compact("professeurs")); 
         //
     }
 
@@ -37,6 +42,16 @@ class professeurController extends Controller
     {
         //
           //dd($request);
+
+          $user = new User();
+
+        $user -> nom = $request->nom;
+        $user -> email = $request-> email;
+        $user -> password =  Hash::make( $request->password ) ;
+        $user -> perso = 'Professeur';
+        $user -> save();
+        
+
          $professeur = new Professeur();
 
          $professeur -> nom =  $request->nom;
@@ -45,10 +60,14 @@ class professeurController extends Controller
          $professeur -> faculte =  $request->faculte;
          $professeur -> departement =  $request->departement;
 
+         $professeur->user_id = $user->id;
+
          $professeur -> save();
 
          return to_route('listePROF');
     }
+
+   
 
     /**
      * Display the specified resource.

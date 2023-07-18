@@ -14,14 +14,15 @@
             <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
               </a></li>
-            <li>
-              <form class="form-inline mr-auto">
-                <div class="search-element">
-                 
-                 
-              
+            <li >
+           
+            <div>
+          
+                @if(auth()->user())
+                  <h3 style="text-center;">  Welcome   {{auth()->user()->nom}}</h3>
+                @endif
                 </div>
-              </form>
+           
             </li>
           </ul>
         </div>
@@ -52,15 +53,20 @@
               </div>
             </div>
           </li>
-          <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="assets/img/user.png" class="user-img-radious-style" _mstalt="60073" _msthash="43"> <span class="d-sm-none d-lg-inline-block"></span></a>
+          <li class="dropdown"><a href="{{route('login')}}" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="assets/img/user.png" class="user-img-radious-style" _mstalt="60073" _msthash="43"> <span class="d-sm-none d-lg-inline-block"></span></a>
             <div class="dropdown-menu dropdown-menu-right pullDown" _msthidden="5">
               <div class="dropdown-title" _msttexthash="278577" _msthidden="1" _msthash="44">Hello</div>
-              <a href="profile.html" class="dropdown-item has-icon" _msthidden="1"> <i class="far
-										fa-user"></i><font _mstmutation="1" _msttexthash="94315" _msthidden="1" _msthash="45"> connection ?
              
              
-              <a href="auth-login.html" class="dropdown-item has-icon text-danger" _msthidden="1"> <i class="fas fa-sign-out-alt"></i><font _mstmutation="1" _msttexthash="79768" _msthidden="1" _msthash="48">
-                Logout
+              <a href="{{route('new')}}" class="dropdown-item has-icon text-danger" _msthidden="1"> <i class="fas fa-sign-out-alt"></i><font _mstmutation="1" _msttexthash="79768" _msthidden="1" _msthash="48">
+             
+             
+                  
+                  <button type="submit">logout</button>
+                  
+            
+             
+
               </font></a>
             </div>
           </li>
@@ -75,35 +81,36 @@
           <ul class="sidebar-menu">
             <li class="menu-header" _msttexthash="133900" _msthash="51">Principal</li>
             <li class="dropdown">
-              <a href="{{route('welcome')}}"  class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-monitor"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg><span _msttexthash="226772" _msthash="52">Tableau de bord</span></a>
+              <a href="{{route('new')}}"  class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-monitor"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg><span _msttexthash="226772" _msthash="52">Tableau de bord</span></a>
             </li>
 
-            <li class="menu-header" _msttexthash="0000000" _msthash="65">Interface Requetes</li>
-            <li class="dropdown">
-            <a href="#" class="menu-toggle nav-link has-dropdown toggled"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><span _msttexthash="564538" _msthash="61">Etudiants</span></a>
-              <ul class="dropdown-menu" _msthidden="2">
-                <li _msthidden="1"><a class="nav-link" href="{{route('requete')}}" _msttexthash="176163" _msthidden="1" _msthash="55">creer Requetes</a></li>
-                <li _msthidden="1"><a href="{{route('listeETD')}}"  _msttexthash="234026" _msthidden="1" _msthash="144">Listes Etudiants</a></li>
-                <li _msthidden="1"><a href="{{route('listeETD')}}"  _msttexthash="234026" _msthidden="1" _msthash="144">conversation</a></li>
-               
+            @if(auth()->user() != null)
 
-              </ul>
-            </li>
-         
-           
-            <li class="menu-header" _msttexthash="2931006" _msthash="65"> Interface utilisateur</li>
-    
-
-            <li class="dropdown">
-              <a href="#" class="menu-toggle nav-link has-dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-check"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg><span _msttexthash="45175" _msthash="140">Professeurs</span></a>
-              <ul class="dropdown-menu" _msthidden="5">
-                
-                <li _msthidden="1"><a href="{{route('listePROF')}}"  _msttexthash="133354" _msthidden="1" _msthash="145">Listes Professeur </a></li>
-                <li _msthidden="1"><a class="nav-link" href="{{route('listeREQ')}}" _msttexthash="176163" _msthidden="1" _msthash="55">Listes Requetes</a></li>
-                <li _msthidden="1"><a href="{{route('listeETD')}}"  _msttexthash="234026" _msthidden="1" _msthash="144">Listes Etudiants</a></li>
-              </ul>
-            </li>
-
+              @if(auth()->user()->perso === 'Etudiant')
+                <li class="menu-header" _msttexthash="0000000" _msthash="65">Interface Requetes</li>
+                <li class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-check"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg><span _msttexthash="45175" _msthash="140">Etudiants</span></a>
+                  <ul class="dropdown-menu" _msthidden="5">
+                    <li _msthidden="1"><a class="nav-link" href="{{route('requete')}}" _msttexthash="176163" _msthidden="1" _msthash="55">creer Requetes</a></li>
+                    <li _msthidden="1"><a href="{{route('listeETD')}}"  _msttexthash="234026" _msthidden="1" _msthash="144">Listes Etudiants</a></li>
+                  </ul>
+                </li>
+                @endif
+     
+              @if(auth()->user()->perso ==='Professeur')
+              <li class="menu-header" _msttexthash="2931006" _msthash="65"> Interface utilisateur</li>
+              <li class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-check"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg><span _msttexthash="45175" _msthash="140">Professeurs</span></a>
+                <ul class="dropdown-menu" _msthidden="5">
+                  <li _msthidden="1"><a href="{{ route('listePROF') }}" _msttexthash="133354" _msthidden="1" _msthash="145">Listes Professeur</a></li>
+                  <li _msthidden="1"><a class="nav-link" href="{{ route('listeREQ') }}" _msttexthash="176163" _msthidden="1" _msthash="55">Listes Requetes</a></li>
+                  <li _msthidden="1"><a href="{{ route('listeETD') }}" _msttexthash="234026" _msthidden="1" _msthash="144">Listes Etudiants</a></li>
+                </ul>
+              </li>
+              @endif
+              
+           @endif
+          
             <li class="menu-header" _msttexthash="2939006" _msthash="65">Éléments  de statistiques </li>
             <li class="dropdown">
               <a href="#" class="menu-toggle nav-link has-dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-check"><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg><span _msttexthash="95901" _msthash="53">Differents diagrames</span></a>

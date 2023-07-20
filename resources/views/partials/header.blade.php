@@ -31,9 +31,13 @@
   <link rel='shortcut icon' type='image/x-icon' href="{{asset('assets/img/favicon.ico')}}" />
 </head>
 
-<?php
-
-?>
+<style>
+    .button-button{
+        border-radius: 10px;
+        border: none;
+        margin: 0px 10px;
+    }
+</style>
 
 <!--Delete all above ?-->
 <div class="loader" style="display: none;"></div>
@@ -92,11 +96,14 @@
           <li class="dropdown"><a href="{{route('login')}}" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="assets/img/user.png" class="user-img-radious-style" _mstalt="60073" _msthash="43"> <span class="d-sm-none d-lg-inline-block"></span></a>
             <div class="dropdown-menu dropdown-menu-right pullDown" _msthidden="5">
               <div class="dropdown-title" _msttexthash="278577" _msthidden="1" _msthash="44">Hello</div>
-
-
-              <a href="{{route('new')}}" class="dropdown-item has-icon text-danger" _msthidden="1"> <i class="fas fa-sign-out-alt"></i><font _mstmutation="1" _msttexthash="79768" _msthidden="1" _msthash="48">
-                  <button type="submit">logout</button>
-              </font></a>
+                @if (auth()->check())
+                    <form action="{{route('logout')}}" method="POST">
+                        @CSRF
+                        <button type="submit" class="btn-danger button-button">logout</button>
+                    </form>
+                @else
+                        <a href="{{route('login')}}" class="button-button">Login</a>
+                @endif
             </div>
           </li>
         </ul>

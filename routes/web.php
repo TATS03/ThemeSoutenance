@@ -43,7 +43,7 @@ Route::put('/requete/{id}',[requetesController::class,'update'])->name('requeteu
 Route::put('/requete/valider/{id}',[requetesController::class,'valider'])->name('requetevalider')->middleware('auth');
 Route::put('/requete/rejeter/{id}',[requetesController::class,'rejeter'])->name('requeterejeter')->middleware('auth');
 
-// Route::post('logout',[AuthController::class, 'logout'])->name('logout');
+Route::post('logout',[AuthController::class, 'logout'])->name('logout');
 
 
 

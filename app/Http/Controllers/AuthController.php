@@ -84,9 +84,11 @@ class AuthController extends Controller
             return view('pages.conversation');
         }
 
-    // public function logout(){
-    //     Auth::logout();
-    // }
+    public function logout(){
+        Auth::logout();
+
+        return redirect()->route('new');
+    }
 
 }
 

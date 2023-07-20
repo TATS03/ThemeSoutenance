@@ -3,10 +3,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Creer Requete</title>
+<title>Voir Une requete</title>
 </head>
 
+<?php
 
+$fileNames = explode(",",$requeteChoisis->file);
+
+?>
 
 <body class="sidebar-gone light light-sidebar theme-white">
 
@@ -28,18 +32,44 @@
                     <div class="col-12 col-sm-12 col-lg-9">
                         <div class="card author-box card-primary">
                             <div class="card-body">
-                                <form method="">
-                                    <p>Rediriger cette requete a Mr/Mme,</p>
-                                    <select class="form-control" name="nom" required>
+                            <form action="{{route('requeteupdate',['id'=>$requeteChoisis->id])}}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                    <p>Rediriger cette requete de Mr/Mme <b>{{$requeteChoisis->nom}}</b> a Mr/Mme,</p>
+                                    <select class="form-control" name="newName" required>
                                         @foreach($teachers as $prof)
                                         <option>{{ $prof->nom }}</option>
                                         @endforeach
                                     </select>
                                         <br>
                                         <button class="btn btn-primary" _msttexthash="98280" _msthash="189"
-                                            type="submit">Sauvegarder</button>
+                                            type="submit">Rediriger</button>
                                 </form>
+                                <br>
+                            <div>
+                                <h5>Suget : <b> {{$requeteChoisis->object}} </b> </h5>
+                                <br>
+                                <h5>Message Par L'etudiat :</h5>
+                                <p>
+                                    {{$requeteChoisis->message}}
+                                </p>
+
+                                <h5>Les differents Pieces joints</h5>
+                                @foreach($fileNames as $file)
+                                <?php
+                                    $extension = explode(".",$file)[1];
+                                    // echo $extension;
+                                ?>
+                                    @if($extension == "pdf")
+                                        <embed src="{{ asset("uploads/requetes/{$requeteChoisis->matricule}-{$requeteChoisis->nom}/files/$file") }}" type="application/pdf" width="100%" height="600px" >
+                                    @elseif($extension == "jpg" || $extension == "png" || $extension == "jpeg")
+
+                                    @endif
+                                @endforeach
                             </div>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>

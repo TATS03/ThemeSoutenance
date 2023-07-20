@@ -56,16 +56,38 @@ $fileNames = explode(",",$requeteChoisis->file);
 
                                 <h5>Les differents Pieces joints</h5>
                                 @foreach($fileNames as $file)
-                                <?php
+                                <div style="margin-bottom: 50px;">
+                                    <?php
                                     $extension = explode(".",$file)[1];
                                     // echo $extension;
-                                ?>
+                                    ?>
                                     @if($extension == "pdf")
-                                        <embed src="{{ asset("uploads/requetes/{$requeteChoisis->matricule}-{$requeteChoisis->nom}/files/$file") }}" type="application/pdf" width="100%" height="600px" >
+                                    <embed src="{{ asset("uploads/requetes/{$requeteChoisis->matricule}-{$requeteChoisis->nom}/files/$file") }}" type="application/pdf" width="100%" height="800px" >
                                     @elseif($extension == "jpg" || $extension == "png" || $extension == "jpeg")
-
+                                    <img style="width:100%;" src="{{asset("uploads/requetes/{$requeteChoisis->matricule}-{$requeteChoisis->nom}/files/$file")}}" alt="">
                                     @endif
+                                </div>
                                 @endforeach
+                            </div>
+
+                            <div>
+                                <p>Etat De la requete :
+                                    <span> <b>
+                                        @if($requeteChoisis->etat == 0)
+                                            En attente
+                                        @elseif($requeteChoisis->etat == 1)
+                                            Requete Valide
+                                        @elseif($requeteChoisis->etat == 2)
+                                            Requete Rejeter
+                                        @endif
+                                        </b></span>
+                                </p>
+                            </div>
+                            @if()
+
+                            @endif
+                            <div>
+                                
                             </div>
                             </div>
 

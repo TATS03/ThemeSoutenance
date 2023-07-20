@@ -53,6 +53,37 @@ class requetesController extends Controller
         return view('pages.etudiantsReq')->with('mesRequetes',$listeRequetes);
     }
 
+    public function viewSingle($id){
+
+        $theRequete = Requetes::where('id',$id)->first();
+        if($theRequete){
+            if(Auth()->user()->perso == "Etudiant"){
+                $typUser = "Etudiant";
+            }else{
+                $typUser = "Professeur";
+            }
+
+            if($typUser = "Etudiant"){
+                $theEtudiant = Etudiant::where('user_id',  Auth()->user()->id)->first();
+                if($theEtudiant->matricule == $theRequete->matricule){
+                    return "$theRequete";
+                }else {
+                    $theRequete = null;
+                    return "Vous n'etes pas autoriser a voir cette requete!";
+                }
+            }else if($typUser = "Professeur"){
+
+            }else {
+                $theRequete = null;
+                return "Vous n'etes pas autoriser a voir cette requete!";
+            }
+        } else {
+            echo "Requetes Introuvable!!";
+        }
+
+
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -61,9 +92,7 @@ class requetesController extends Controller
      */
     public function store(Request $request)
     {
-        //
 
-        //
           $requetes = new Requetes();
 
           $requetes -> matricule = $request ->matricule;
@@ -72,15 +101,23 @@ class requetesController extends Controller
           $requetes -> nom =  $request->nom ;
           $requetes -> object =  $request->object;
           $requetes -> etat = 0;
+          $requetes ->message = $request->reqMessage;
+          $picNames = [];
 
-        //   return $request->file('reqPic')->getClientOriginalName();
+        foreach ($request->images as $file) {
+            $picName = $file->getClientOriginalName();
+            array_push($picNames,$picName);
 
-          $picName =  $request->file('reqPic')->getClientOriginalName();
-          $requetes -> file =  $picName;
-          $request->file('reqPic')->move(public_path("uploads/requetes/{$requetes->matricule}-{$requetes->nom}/pic"), $picName);
+            $file->move(public_path("uploads/requetes/{$requetes->matricule}-{$requetes->nom}/files"), $picName);
+        }
+        $picNamesString = implode(",", $picNames);
+        $requetes->file = $picNamesString;
+
           $requetes-> save();
 
         return Redirect::back()->withSuccess("La requete a ete envoyer a Mr/Mme, {$requetes -> nom} avec success");
+
+
     }
 
     /**
@@ -145,8 +182,11 @@ class requetesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function deleteReq($id)
     {
-        //
+
+        $theRequete = Requetes::where('id',$id)->first();
+        $theRequete->delete();
+        return redirect()->back();
     }
 }

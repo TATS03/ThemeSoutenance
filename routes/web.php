@@ -40,8 +40,10 @@ Route::post('/loginprof',[AuthController::class,'listeETD'])->name('listeREQ')->
 Route::get('/requete',[AuthController::class,'requete'])->name('requete')->middleware('auth');
 
 Route::get('/requetes/{etuId}',[requetesController::class,'requeteEtu'])->name('listeReqsEtu')->middleware('auth');
+Route::post('/requetes/delete/{reqId}',[requetesController::class,'deleteReq'])->name('deleteReq')->middleware('auth');
 
 Route::put('/requete/{id}',[requetesController::class,'update'])->name('requeteupdate')->middleware('auth');
+Route::get('/requete/{reqId}',[requetesController::class,'viewSingle'])->name('viewSingleReq')->middleware('auth');
 
 Route::put('/requete/valider/{id}',[requetesController::class,'valider'])->name('requetevalider')->middleware('auth');
 Route::put('/requete/rejeter/{id}',[requetesController::class,'rejeter'])->name('requeterejeter')->middleware('auth');

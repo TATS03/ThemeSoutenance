@@ -32,19 +32,21 @@ $fileNames = explode(",",$requeteChoisis->file);
                     <div class="col-12 col-sm-12 col-lg-9">
                         <div class="card author-box card-primary">
                             <div class="card-body">
-                            <form action="{{route('requeteupdate',['id'=>$requeteChoisis->id])}}" method="POST">
-                                @csrf
-                                @method('PUT')
+                                @if($requeteChoisis->etat == 0)
+                                <form action="{{route('requeteupdate',['id'=>$requeteChoisis->id])}}" method="POST">
+                                    @csrf
+                                    @method('PUT')
                                     <p>Rediriger cette requete de Mr/Mme <b>{{$requeteChoisis->nom}}</b> a Mr/Mme,</p>
                                     <select class="form-control" name="newName" required>
                                         @foreach($teachers as $prof)
                                         <option>{{ $prof->nom }}</option>
                                         @endforeach
                                     </select>
-                                        <br>
-                                        <button class="btn btn-primary" _msttexthash="98280" _msthash="189"
-                                            type="submit">Rediriger</button>
+                                    <br>
+                                    <button class="btn btn-primary" _msttexthash="98280" _msthash="189"
+                                    type="submit">Rediriger</button>
                                 </form>
+                                @endif
                                 <br>
                             <div>
                                 <h5>Suget : <b> {{$requeteChoisis->object}} </b> </h5>
@@ -83,12 +85,24 @@ $fileNames = explode(",",$requeteChoisis->file);
                                         </b></span>
                                 </p>
                             </div>
-                            @if()
-
-                            @endif
-                            <div>
-                                
+                            @if(auth()->user()->perso ==='Professeur' && $requeteChoisis->etat == 0)
+                            <div style="display:flex;justify-content:space-around;">
+                                <form action="{{route('requetevalider',['id'=>$requeteChoisis->id])}}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <button class="btn btn-primary" _msttexthash="98280"
+                                    _msthash="189" type="submit">Valider cette
+                                    requete</button>
+                                </form>
+                                <form action="{{route('requeterejeter',['id'=>$requeteChoisis->id])}}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <button class="btn btn-danger" _msttexthash="98280"
+                                    _msthash="189" type="submit">Rejeter cette
+                                    requete</button>
+                                </form>
                             </div>
+                            @endif
                             </div>
 
 

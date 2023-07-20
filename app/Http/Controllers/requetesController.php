@@ -27,8 +27,18 @@ class requetesController extends Controller
 
         $allTeachers = Professeur::all();
         $theUser = Auth::user()->nom;
-        $requetes = Requetes::where('nom', $theUser)->get();
-        return view('pages.listeREQ', compact("requetes"))->with('allTeachers',$allTeachers);
+
+        $requetesAttente = Requetes::where('nom', $theUser)->where('etat',0)->get();
+        $requetesValide = Requetes::where('nom', $theUser)->where('etat',1)->get();
+        $requetesRejete = Requetes::where('nom', $theUser)->where('etat',2)->get();
+
+
+
+        return view('pages.listeREQ')
+            ->with('allTeachers',$allTeachers)
+            ->with('requetesAttente',$requetesAttente)
+            ->with('requetesValide',$requetesValide)
+            ->with('requetesRejete',$requetesRejete);
     } else {
         // Gérer le cas où aucun utilisateur n'est authentifié
     }
@@ -64,7 +74,7 @@ class requetesController extends Controller
                 $typUser = "Professeur";
             }
 
-            if($typUser = "Etudiant"){
+            if($typUser == "Etudiant"){
                 $theEtudiant = Etudiant::where('user_id',  Auth()->user()->id)->first();
                 if($theEtudiant->matricule == $theRequete->matricule){
                     return view('pages.singleReq')
@@ -74,7 +84,7 @@ class requetesController extends Controller
                     $theRequete = null;
                     return "Vous n'etes pas autoriser a voir cette requete!";
                 }
-            }else if($typUser = "Professeur"){
+            }else if($typUser == "Professeur"){
                 return view('pages.singleReq')
                     ->with('requeteChoisis',$theRequete)
                     ->with('teachers',$allTeachers);;
@@ -169,7 +179,7 @@ class requetesController extends Controller
         $theRequete = Requetes::where('id',$id)->first();
         $theRequete->etat = 1 ;
         $theRequete->save();
-        return back();
+        return Redirect::route("listeREQ")->withSuccess("Requetes valide avec success");
     }
 
     public function rejeter(Request $request, $id)
@@ -178,7 +188,8 @@ class requetesController extends Controller
         $theRequete = Requetes::where('id',$id)->first();
         $theRequete->etat = 2 ;
         $theRequete->save();
-        return back();
+
+        return Redirect::route("listeREQ")->withSuccess("Requetes rejeter avec success");
     }
 
     /**

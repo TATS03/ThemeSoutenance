@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Etudiant;
 use App\Models\Requetes;
 use Illuminate\Http\Request;
 use App\Models\Professeur;
-
-use Auth;
+use App\Models\User;
+// use Auth;
+use Illuminate\Support\Facades\Auth ;
+use Illuminate\Support\Facades\Redirect;
 
 class requetesController extends Controller
 {
@@ -15,7 +18,7 @@ class requetesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
- 
+
 
 
     public function index()
@@ -36,9 +39,18 @@ class requetesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function requeteEtu($EtuId)
     {
-        //
+        $userId = Auth()->user()->id;
+        $theEtudiant = Etudiant::where('user_id',  Auth()->user()->id)->first();
+
+        if($EtuId != $userId){
+            return "Vous n'etes pas autoriser a voir cette page !";
+        }
+
+        $listeRequetes = Requetes::where('matricule',$theEtudiant->matricule)->get();
+
+        return view('pages.etudiantsReq')->with('mesRequetes',$listeRequetes);
     }
 
     /**
@@ -50,7 +62,7 @@ class requetesController extends Controller
     public function store(Request $request)
     {
         //
-        
+
         //
           $requetes = new Requetes();
 
@@ -60,22 +72,15 @@ class requetesController extends Controller
           $requetes -> nom =  $request->nom ;
           $requetes -> object =  $request->object;
           $requetes -> etat = 0;
-        
+
         //   return $request->file('reqPic')->getClientOriginalName();
 
           $picName =  $request->file('reqPic')->getClientOriginalName();
-
-
           $requetes -> file =  $picName;
-
           $request->file('reqPic')->move(public_path("uploads/requetes/{$requetes->matricule}-{$requetes->nom}/pic"), $picName);
-
           $requetes-> save();
-            
 
-          return to_route('listeREQ');
-
-       
+        return Redirect::back()->withSuccess("La requete a ete envoyer a Mr/Mme, {$requetes -> nom} avec success");
     }
 
     /**

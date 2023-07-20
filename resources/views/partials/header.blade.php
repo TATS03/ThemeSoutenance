@@ -129,6 +129,7 @@
                   <ul class="dropdown-menu" _msthidden="5">
                     <li _msthidden="1"><a class="nav-link" href="{{route('requete')}}" _msttexthash="176163" _msthidden="1" _msthash="55">creer Requetes</a></li>
                     <li _msthidden="1"><a href="{{route('listeETD')}}"  _msttexthash="234026" _msthidden="1" _msthash="144">Listes Etudiants</a></li>
+                    <li _msthidden="1"><a href="{{route('listeReqsEtu',auth()->user()->id)}}"  _msttexthash="234026" _msthidden="1" _msthash="144">Mes Requete(S)</a></li>
                   </ul>
                 </li>
                 @endif

@@ -3,48 +3,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Hamster</title>
-  <!-- General CSS Files --> 
-  <link rel="stylesheet" href="{{asset('assets/css/app.min.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/bundles/owlcarousel2/dist/assets/owl.carousel.min.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/bundles/owlcarousel2/dist/assets/owl.theme.default.min.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/bundles/izitoast/css/iziToast.min.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/bundles/jqvmap/dist/jqvmap.min.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/bundles/flag-icon-css/css/flag-icon.min.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/bundles/summernote/summernote-bs4.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/bundles/bootstrap-social/bootstrap-social.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/bundles/prism/prism.css')}}">
-  
-  <!-- Template CSS -->
-  <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/css/components.css')}}">
-  <!-- Custom style CSS -->
-  <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
-  <link rel='shortcut icon' type='image/x-icon' href="{{asset('assets/img/favicon.ico')}}"> 
-  <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/img/favicon.ico')}}">
-
-  
-  <link rel="stylesheet" href="{{asset('assets/css/app.min.css')}}">
-  <!-- Template CSS -->
-  <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/css/components.css')}}">
-  <!-- Custom style CSS -->
-  
-  <link rel='shortcut icon' type='image/x-icon' href="{{asset('assets/img/favicon.ico')}}" />
+<title>Creer Requete</title>
 </head>
 
 
 
 <body class="sidebar-gone light light-sidebar theme-white">
-      
+
 
 @include('partials/header')
 
 <main>
+
     <!-- Main Content -->
     <div class="main-content" style="min-height: 856px;" _msthidden="9">
+    @if(Session::has('success'))
+    <div class="alert alert-success">
+        {{Session::get('success')}}
+    </div>
+    @endif
         <section class="section">
             <div class="section-body">
                 <div class="row">
@@ -178,35 +155,9 @@
 </div>
 
 <!-- JavaScript -->
-<script>
-    // Lorsque le formulaire est soumis
-    document.querySelector('form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Empêche le rechargement de la page
 
-        // Envoyer la requête AJAX pour soumettre le formulaire
-        fetch(this.action, {
-                method: this.method,
-                body: new FormData(this)
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Afficher le message de succès dans le modal
-                document.getElementById('successMessage').textContent = data.message;
-                document.getElementById('successModal').style.display = 'block';
-            })
-            .catch(error => {
-                console.error(error);
-                // Gérer les erreurs si nécessaire
-            });
-    });
 
-    // Fermer le modal en cliquant sur le bouton de fermeture
-    document.querySelector('.close').addEventListener('click', function() {
-        document.getElementById('successModal').style.display = 'none';
-    });
-</script>
-
- @include('partials/footer')
+@include('partials/footer')
 
 </body>
 </html>

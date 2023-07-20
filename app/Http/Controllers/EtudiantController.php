@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Etudiant;
-use App\Models\User; 
+use App\Models\User;
 use Hash;
+use Illuminate\Support\Facades\Hash as FacadesHash;
 
 class EtudiantController extends Controller
 {
@@ -41,14 +42,14 @@ class EtudiantController extends Controller
     {
 
         //   dd($request);
-       
+
         $user = new User();
 
         $user -> nom = $request->nom;
         $user -> email = $request-> email;
-        $user -> password =  Hash::make( $request->password ) ;
+        $user -> password =  FacadesHash::make( $request->password ) ;
         $user -> perso = 'Etudiant';
-        
+
 
         $user -> save();
 
@@ -60,7 +61,7 @@ class EtudiantController extends Controller
         $etudiant -> matricule = $request->matricule;
         $etudiant -> nom =  $request->nom;
         $etudiant -> email =  $request->email;
-        $etudiant -> password =  Hash::make( $request->password ) ;
+        $etudiant -> password =  FacadesHash::make( $request->password ) ;
         $etudiant -> filiere =  $request->filiere;
         $etudiant -> niveau =  $request->niveau;
 
@@ -108,7 +109,7 @@ class EtudiantController extends Controller
     {
         //
     }
-        
+
     /*
      * Remove the specified resource from storage.
      *
@@ -121,19 +122,19 @@ class EtudiantController extends Controller
     }
 
     public function delete($id){
-       
+
         $etudiant = Etudiant::find($id);
         $etudiant->delete();
         return to_route('listeETD');
 }
 
 // public function Users(){
-       
+
 //     $data = Etudiant::all();
 //     $data ->get;
 //     return view('pages.requete',compact("data"));
 // }
 
 
-   
+
 }

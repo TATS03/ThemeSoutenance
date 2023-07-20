@@ -25,7 +25,9 @@ Route::get('/login',[AuthController::class,'login'])->name('login');
 Route::post('/listeETD',[AuthController::class,'listeETD'])->name('listeETD');
 Route::get('/signprof',[AuthController::class,'signprof'])->name('signprof');
 Route::post('/login',[AuthController::class,'listeETD']);
+
 Route::post('/createProf',[professeurController::class,'store'])->name('createProf');
+Route::post('/createEtu',[EtudiantController::class,'store'])->name('createEtu');
 
 
 // Route::post('/sign',[AuthController::class,'sign'])->name('sign');
@@ -36,7 +38,8 @@ Route::get('/loginprof',[AuthController::class,'loginprof'])->name('loginprof')-
 Route::post('/loginprof',[AuthController::class,'listeETD'])->name('listeREQ')->middleware('auth');
 
 Route::get('/requete',[AuthController::class,'requete'])->name('requete')->middleware('auth');
-Route::post('/requete',[AuthController::class,'requete'])->name('requete')->middleware('auth');
+
+Route::get('/requetes/{etuId}',[requetesController::class,'requeteEtu'])->name('listeReqsEtu')->middleware('auth');
 
 Route::put('/requete/{id}',[requetesController::class,'update'])->name('requeteupdate')->middleware('auth');
 

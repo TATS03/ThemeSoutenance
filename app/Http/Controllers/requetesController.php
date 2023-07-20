@@ -56,6 +56,7 @@ class requetesController extends Controller
     public function viewSingle($id){
 
         $theRequete = Requetes::where('id',$id)->first();
+        $allTeachers = Professeur::all();
         if($theRequete){
             if(Auth()->user()->perso == "Etudiant"){
                 $typUser = "Etudiant";
@@ -66,13 +67,17 @@ class requetesController extends Controller
             if($typUser = "Etudiant"){
                 $theEtudiant = Etudiant::where('user_id',  Auth()->user()->id)->first();
                 if($theEtudiant->matricule == $theRequete->matricule){
-                    return "$theRequete";
+                    return view('pages.singleReq')
+                        ->with('requeteChoisis',$theRequete)
+                        ->with('teachers',$allTeachers);
                 }else {
                     $theRequete = null;
                     return "Vous n'etes pas autoriser a voir cette requete!";
                 }
             }else if($typUser = "Professeur"){
-
+                return view('pages.singleReq')
+                    ->with('requeteChoisis',$theRequete)
+                    ->with('teachers',$allTeachers);;
             }else {
                 $theRequete = null;
                 return "Vous n'etes pas autoriser a voir cette requete!";

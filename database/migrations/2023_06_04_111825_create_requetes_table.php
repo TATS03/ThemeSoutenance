@@ -25,8 +25,8 @@ return new class extends Migration
             $table->string('matiere');
             $table->string('object');
             $table->string('file');
-            $table->integer('etat');
-            //Pour les requetes rediriger, l
+            $table->integer('etat')->default(0);
+            //Pour les requetes rediriger, la valeur reste toujours 0
             //0 Pour les requetes non verifier
             //1 Pour les requetes verifier et valider
             //2 Pour les requetes verifier et regeter

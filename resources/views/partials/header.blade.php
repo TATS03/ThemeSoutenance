@@ -1,5 +1,41 @@
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Hamster</title>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="{{asset('assets/css/app.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/bundles/owlcarousel2/dist/assets/owl.carousel.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/bundles/owlcarousel2/dist/assets/owl.theme.default.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/bundles/izitoast/css/iziToast.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/bundles/jqvmap/dist/jqvmap.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/bundles/flag-icon-css/css/flag-icon.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/bundles/summernote/summernote-bs4.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/bundles/bootstrap-social/bootstrap-social.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/bundles/prism/prism.css')}}">
+
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/components.css')}}">
+  <!-- Custom style CSS -->
+  <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
+  <link rel='shortcut icon' type='image/x-icon' href="{{asset('assets/img/favicon.ico')}}">
+  <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/img/favicon.ico')}}">
 
 
+  <link rel="stylesheet" href="{{asset('assets/css/app.min.css')}}">
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/components.css')}}">
+  <!-- Custom style CSS -->
+
+  <link rel='shortcut icon' type='image/x-icon' href="{{asset('assets/img/favicon.ico')}}" />
+</head>
+
+<?php
+
+?>
+
+<!--Delete all above ?-->
 <div class="loader" style="display: none;"></div>
 
 
@@ -15,14 +51,14 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
               </a></li>
             <li >
-           
+
             <div>
-          
+
                 @if(auth()->user())
-                  <h3 style="text-center;">  Welcome   {{auth()->user()->nom}}</h3>
+                  <h3 style="text-align:center; padding-top:6px;">  Welcome   {{auth()->user()->nom}}</h3>
                 @endif
                 </div>
-           
+
             </li>
           </ul>
         </div>
@@ -31,8 +67,8 @@
               <span class="badge headerBadge1" _msttexthash="4914" _msthash="2">
                 6 </span> </a>
             <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown" _msthidden="27">
-              
-             
+
+
               <div class="dropdown-footer text-center pullDown" _msthidden="1">
                 <a href="#" _msthidden="1"><font _mstmutation="1" _msttexthash="90428" _msthidden="1" _msthash="29">View All </font><i class="fas fa-chevron-right"></i></a>
               </div>
@@ -47,7 +83,7 @@
                   <a href="#" _msttexthash="209768" _msthidden="1" _msthash="31">Mark All As Read</a>
                 </div>
               </div>
-             
+
               <div class="dropdown-footer text-center" _msthidden="1">
                 <a href="#" _msthidden="1"><font _mstmutation="1" _msttexthash="90428" _msthidden="1" _msthash="42">View All </font><i class="fas fa-chevron-right"></i></a>
               </div>
@@ -56,17 +92,10 @@
           <li class="dropdown"><a href="{{route('login')}}" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="assets/img/user.png" class="user-img-radious-style" _mstalt="60073" _msthash="43"> <span class="d-sm-none d-lg-inline-block"></span></a>
             <div class="dropdown-menu dropdown-menu-right pullDown" _msthidden="5">
               <div class="dropdown-title" _msttexthash="278577" _msthidden="1" _msthash="44">Hello</div>
-             
-             
-              <a href="{{route('new')}}" class="dropdown-item has-icon text-danger" _msthidden="1"> <i class="fas fa-sign-out-alt"></i><font _mstmutation="1" _msttexthash="79768" _msthidden="1" _msthash="48">
-             
-             
-                  
-                  <button type="submit">logout</button>
-                  
-            
-             
 
+
+              <a href="{{route('new')}}" class="dropdown-item has-icon text-danger" _msthidden="1"> <i class="fas fa-sign-out-alt"></i><font _mstmutation="1" _msttexthash="79768" _msthidden="1" _msthash="48">
+                  <button type="submit">logout</button>
               </font></a>
             </div>
           </li>
@@ -96,7 +125,7 @@
                   </ul>
                 </li>
                 @endif
-     
+
               @if(auth()->user()->perso ==='Professeur')
               <li class="menu-header" _msttexthash="2931006" _msthash="65"> Interface utilisateur</li>
               <li class="dropdown">
@@ -108,9 +137,9 @@
                 </ul>
               </li>
               @endif
-              
+
            @endif
-          
+
             <li class="menu-header" _msttexthash="2939006" _msthash="65">Éléments  de statistiques </li>
             <li class="dropdown">
               <a href="#" class="menu-toggle nav-link has-dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-check"><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg><span _msttexthash="95901" _msthash="53">Differents diagrames</span></a>
@@ -120,7 +149,7 @@
                 <li _msthidden="1"><a class="nav-link" href="#" _msttexthash="176163" _msthidden="1" _msthash="55">Donut chart</a></li>
               </ul>
             </li>
-            
+
           </ul>
         </aside>
       </div>

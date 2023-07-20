@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Professeur;
-use App\Models\User; 
+use App\Models\User;
 use Hash;
+use Illuminate\Support\Facades\Hash as FacadesHash;
 
 class professeurController extends Controller
 {
@@ -16,9 +17,9 @@ class professeurController extends Controller
      */
     public function index()
     {
-        
+
         $professeurs = Professeur::all();
-        return view('pages.listePROF',compact("professeurs")); 
+        return view('pages.listePROF',compact("professeurs"));
         //
     }
 
@@ -47,10 +48,10 @@ class professeurController extends Controller
 
         $user -> nom = $request->nom;
         $user -> email = $request-> email;
-        $user -> password =  Hash::make( $request->password ) ;
+        $user -> password =  FacadesHash::make( $request->password ) ;
         $user -> perso = 'Professeur';
         $user -> save();
-        
+
 
          $professeur = new Professeur();
 
@@ -67,7 +68,7 @@ class professeurController extends Controller
          return to_route('listePROF');
     }
 
-   
+
 
     /**
      * Display the specified resource.
@@ -117,5 +118,5 @@ class professeurController extends Controller
         //
     }
 
-  
+
 }

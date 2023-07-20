@@ -12,17 +12,17 @@ use Illuminate\Http\Request;
 class AuthController extends Controller
 {
     //
-    public function welcome() 
+    public function welcome()
         {
             return view('pages.welcome');
         }
-        public function newpage() 
+        public function newpage()
         {
             return view('pages.new');
         }
-    
-    
-    
+
+
+
     public function listeETD(Request $request )
         {
             $verif =  $request->only("email","password");
@@ -34,24 +34,24 @@ class AuthController extends Controller
                         return redirect()->route('listeREQ');
 
                     }elseif($user->perso === 'Etudiant'){
-
                         return redirect()->route('requete');
                     }
                     return redirect()->back();
                 }
                 else{
-                    // dd2($request);
-                    return back()->withErrors(['error' => 'Identifiants invalides']);
-                
+
+                    return back()->withErrors('Identifiants invalides');
+                    // return back()->withErrors('Identifiants invalides');
+
                 }
         }
-    
-    
-   
+
+
+
 
     public function sign()
         {
-            
+
             return view('pages.sign');
         }
 
@@ -59,14 +59,14 @@ class AuthController extends Controller
         {
             return view('pages.login');
         }
-   
+
     public function signprof()
-        {   
-            return view('pages.signprof');   
+        {
+            return view('pages.signprof');
         }
 
 
-   
+
     public function requete ()
         {
             $teachers = Professeur::all();
@@ -80,7 +80,7 @@ class AuthController extends Controller
         }
 
     public function conversation()
-        { 
+        {
             return view('pages.conversation');
         }
 

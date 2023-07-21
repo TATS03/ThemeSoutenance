@@ -64,9 +64,9 @@ $fileNames = explode(",",$requeteChoisis->file);
                                     // echo $extension;
                                     ?>
                                     @if($extension == "pdf")
-                                    <embed src="{{ asset("uploads/requetes/{$requeteChoisis->matricule}-{$requeteChoisis->nom}/files/$file") }}" type="application/pdf" width="100%" height="800px" >
-                                    @elseif($extension == "jpg" || $extension == "png" || $extension == "jpeg")
-                                    <img style="width:100%;" src="{{asset("uploads/requetes/{$requeteChoisis->matricule}-{$requeteChoisis->nom}/files/$file")}}" alt="">
+                                    <embed src="{{ asset("uploads/requetes/{$requeteChoisis->matricule}--{$requeteChoisis->fileloc}/files/$file")}}" type="application/pdf" width="100%" height="800px" >
+                                    @elseif($extension == "jpg" || $extension == "png" || $extension == "jpeg" || $extension == "JPG")
+                                    <img style="width:100%;" src="{{asset("uploads/requetes/{$requeteChoisis->matricule}--{$requeteChoisis->fileloc}/files/$file")}}" alt="">
                                     @endif
                                 </div>
                                 @endforeach

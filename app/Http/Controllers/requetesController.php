@@ -9,10 +9,23 @@ use App\Models\Professeur;
 use App\Models\User;
 // use Auth;
 use Illuminate\Support\Facades\Auth ;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Redirect;
+
+ function getRandString($n) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $randomString = '';
+
+    for ($i = 0; $i < $n; $i++) {
+        $index = rand(0, strlen($characters) - 1);
+        $randomString .= $characters[$index];
+    }
+    return $randomString;
+}
 
 class requetesController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -58,9 +71,14 @@ class requetesController extends Controller
             return "Vous n'etes pas autoriser a voir cette page !";
         }
 
-        $listeRequetes = Requetes::where('matricule',$theEtudiant->matricule)->get();
+        $listeRequetesAttente = Requetes::where('matricule',$theEtudiant->matricule)->where('etat',0)->get();
+        $listeRequetesValides = Requetes::where('matricule',$theEtudiant->matricule)->where('etat',1)->get();
+        $listeRequetesRejeter = Requetes::where('matricule',$theEtudiant->matricule)->where('etat',2)->get();
 
-        return view('pages.etudiantsReq')->with('mesRequetes',$listeRequetes);
+        return view('pages.etudiantsReq')
+                ->with('listeRequetesAttente',$listeRequetesAttente)
+                ->with('listeRequetesValides',$listeRequetesValides)
+                ->with('listeRequetesRejeter',$listeRequetesRejeter);
     }
 
     public function viewSingle($id){
@@ -107,11 +125,17 @@ class requetesController extends Controller
      */
     public function store(Request $request)
     {
+        $rand = getRandString(10);
+
+
+            $theEtudiant = Etudiant::where('user_id',  Auth()->user()->id)->first();
 
           $requetes = new Requetes();
 
-          $requetes -> matricule = $request ->matricule;
-          $requetes -> filiere = $request->filiere;
+          $requetes -> matricule = $theEtudiant->matricule;
+          $requetes -> filiere = $theEtudiant->filiere;
+          $requetes -> fileloc = $rand;
+
           $requetes -> matiere =  $request->matiere;
           $requetes -> nom =  $request->nom ;
           $requetes -> object =  $request->object;
@@ -123,7 +147,7 @@ class requetesController extends Controller
             $picName = $file->getClientOriginalName();
             array_push($picNames,$picName);
 
-            $file->move(public_path("uploads/requetes/{$requetes->matricule}-{$requetes->nom}/files"), $picName);
+            $file->move(public_path("uploads/requetes/{$requetes->matricule}--{$rand}/files"), $picName);
         }
         $picNamesString = implode(",", $picNames);
         $requetes->file = $picNamesString;
@@ -166,7 +190,6 @@ class requetesController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $theRequete = Requetes::where('id',$id)->first();
         $theRequete->nom = $request->newName;
         $theRequete->save();

@@ -32,6 +32,7 @@ return new class extends Migration
             //1 Pour les requetes verifier et valider
             //2 Pour les requetes verifier et regeter
             $table->timestamps();
+            $table->string('fileloc');
         });
     }
 
